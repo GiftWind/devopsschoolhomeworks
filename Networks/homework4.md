@@ -1,3 +1,7 @@
+### Homework 4
+#### Задание 1: Отправить GET запрос удаленному серверу.
+Для отправки запроса выбран сервер neverssl.com, поскольку он не поддерживает ssl, и запросы к нему можно делать с помощью telnet, а не openssl.
+```
 giftwind@markuslab01:~/devops/devopsschoolhomeworks/Networks/http$ telnet neverssl.com 80
 Trying 65.9.47.189...
 Connected to neverssl.com.
@@ -99,3 +103,32 @@ Age: 66387
 
     </body>
 </html>
+```
+#### Задание 2: Отправить POST запрос удаленному серверу.
+Для отправки запроса выбран сервер http://ptsv2.com, созданный специально для тестирования POST запросов. SSL не поддерживает, поэтому можно использовать обычный Telnet. Тело запроса - JSON вида ```{"test": true}```
+
+```
+giftwind@Mark:/mnt/c/Users/Mark$ telnet ptsv2.com 80
+Trying 216.239.38.21...
+Connected to ptsv2.com.
+Escape character is '^]'.
+POST /t/gxnyo-1625866690/post HTTP/1.1
+Host: ptsv2.com
+Connection: close
+Content-type: application/json
+Content-length: 14
+
+{"test": true}
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=utf-8
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+X-Cloud-Trace-Context: e556a1df704fe923a73ba861ab725080
+Date: Fri, 09 Jul 2021 22:08:59 GMT
+Server: Google Frontend
+Content-Length: 54
+Connection: close
+
+Thank you for this dump. I hope you have a lovely day!Connection closed by foreign host.
+```
+
