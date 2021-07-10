@@ -131,4 +131,45 @@ Connection: close
 
 Thank you for this dump. I hope you have a lovely day!Connection closed by foreign host.
 ```
+Сервис сохраняет POST запросы и позволяет просматривать их детали. 
+http://ptsv2.com/t/gxnyo-1625866690/d/6565958487375872
+![POST result image](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/Networks/http/postresult.jpg)
 
+#### Задание 3: Отправить письмо самому себе
+Для отправки выбран SMTP-сервер mx.yandex.ru, поскольку он позволяет работать через telnet не используя авторизацию. Полученные письма складываются в спам.
+
+```
+giftwind@markuslab01:~$ telnet mx.yandex.ru 25
+Trying 77.88.21.249...
+Connected to mx.yandex.ru.
+Escape character is '^]'.
+220 iva7-17d8149460ee.qloud-c.yandex.net (Want to use Yandex.Mail for your domain? Visit http://pdd.yandex.ru)
+HELO giftwind
+250 iva7-17d8149460ee.qloud-c.yandex.net
+MAIL FROM:<mvdeadsoul@yandex.ru>
+250 2.1.0 <mvdeadsoul@yandex.ru> ok
+RCPT TO:<mvdeadsoul@yandex.ru>
+250 2.1.5 <mvdeadsoul@yandex.ru> recipient ok
+DATA
+354 Enter mail, end with "." on a line by itself
+Date: Sat, 10 July 2020
+From: Mark Okulov <mvdeadsoul@yandex.ru>
+Subject: Test SMTP Protocol
+To: Mark Okulov <mvdeadsoul@yandex.ru>
+
+Hi Me.
+I'm playing with SMTP Protocol.
+This is a test mail.
+Best Regards.
+.
+250 2.0.0 Ok: queued on iva7-17d8149460ee.qloud-c.yandex.net as 1625924077-GeZFNYKsXc-VsKaKOK6
+
+502 5.5.2 Syntax error, command unrecognized.
+QUIT
+221 2.0.0 Closing connection.
+Connection closed by foreign host.
+```
+
+Результат:
+![Inbox](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/Networks/New%20folder/emailinbox.jpg)
+![Text](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/Networks/New%20folder/emailtext.jpg)
