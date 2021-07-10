@@ -1,0 +1,23 @@
+giftwind@Mark:/mnt/c/Users/Mark$ telnet ptsv2.com 80 | tee -i httppost2.
+txt
+Trying 216.239.38.21...
+Connected to ptsv2.com.
+Escape character is '^]'.
+POST /t/gxnyo-1625866690/post HTTP/1.1
+Host: ptsv2.com
+Connection: close
+Content-type: application/json
+Content-length: 14
+
+{"test": true}
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=utf-8
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+X-Cloud-Trace-Context: e556a1df704fe923a73ba861ab725080
+Date: Fri, 09 Jul 2021 22:08:59 GMT
+Server: Google Frontend
+Content-Length: 54
+Connection: close
+
+Thank you for this dump. I hope you have a lovely day!Connection closed by foreign host.

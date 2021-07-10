@@ -1,0 +1,14 @@
+Trying 216.239.38.21...
+Connected to ptsv2.com.
+Escape character is '^]'.
+HTTP/1.1 200 OK
+Content-Type: text/plain; charset=utf-8
+Vary: Accept-Encoding
+Access-Control-Allow-Origin: *
+X-Cloud-Trace-Context: 976d0722f952a6f6170fdd68ee2dd27b
+Date: Fri, 09 Jul 2021 22:05:20 GMT
+Server: Google Frontend
+Content-Length: 54
+Connection: close
+
+Thank you for this dump. I hope you have a lovely day!
