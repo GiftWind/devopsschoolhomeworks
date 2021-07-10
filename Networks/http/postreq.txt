@@ -1,5 +1,4 @@
-giftwind@Mark:/mnt/c/Users/Mark$ telnet ptsv2.com 80 | tee -i httppost2.
-txt
+giftwind@Mark:/mnt/c/Users/Mark$ telnet ptsv2.com 80
 Trying 216.239.38.21...
 Connected to ptsv2.com.
 Escape character is '^]'.
