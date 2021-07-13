@@ -1,2 +1,2 @@
 #!/bin/bash
-cat $1 | grep -v '^$' | grep -v '^\#'
+cat $1 | grep -v '^$' | grep -v '^\s\#'
