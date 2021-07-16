@@ -2,6 +2,8 @@
 Собрать git из исходников
 * проверим текущую версию git:
 
+![git version before](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw1/before.jpg)
+
 * воспользуемся [инструкцией](https://git-scm.com/book/ru/v2/%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-Git)
 
 Я не стал устанавливать пакеты для сборки документации в различных форматах - слишком много зависимостей.
@@ -46,9 +48,11 @@ giftwind@markuslab01:~/gitsource/git-2.32.0$ sudo make clean
 ```
 
 Результат:
-
+![after new version of git installation](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw1/result.jpg)
 
 Установленная в /usr/bin версия git 2.25.1 осталась. Можно удалить, можно оставить.
 После перезагрузки хэш очистился, при новом вызове git --version получена новая версия, т.к. в PATH /usr/local/bin стоит раньше /usr/bin:
 
+![git version after reboot](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw1/afterreboot.jpg)
 
+Аналогичный результат можно было бы получить при полной очистке хэша с помощью hash -r или удалении одной записи hash -d git.
