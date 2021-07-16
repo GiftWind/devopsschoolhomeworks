@@ -27,7 +27,7 @@ drwxrwxr-x 26 giftwind giftwind    20480 Jun  6 06:40 git-2.32.0/
 ```
 giftwind@markuslab01:~/gitsource$ sudo apt-get install dh-autoreconf libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev
 ```
-4. Назначаем префикс
+4. Генерируем конфиг с указанием префикса директории инсталляции
 ```
 giftwind@markuslab01:~/gitsource/git-2.32.0$ make configure
 GIT_VERSION = 2.32.0
