@@ -6,9 +6,13 @@
 
 
 Поскольку вероятность выхода из строя RAID массива соответствует верятности выхода из строя некоторого количества дисков, решение задачи сводится к биномиальному распределению:
+
 ![binomial distribution](https://wikimedia.org/api/rest_v1/media/math/render/svg/68e9ce21009429f91ba16de3ca2fbe830b9f8733)
+
 где 
+
 ![binomial coefficient](https://wikimedia.org/api/rest_v1/media/math/render/svg/1065e327d2ca75be3c4dd2e461f608864f9c6e24) 
+
  биномиальный коэффициент, 
  p - вероятность выхода из строя одного диска,
  q = (1 - p) - вероятность "невыхода из строя",
@@ -414,7 +418,13 @@ touch: cannot touch 'newfile': Read-only file system
 giftwind@markuslab01:/mnt/lv1$ sudo touch newfile
 touch: cannot touch 'newfile': Read-only file system
 ```
-Для автоматичеcкого монтирования при запуске системы следует отредактировать файл /etc/fstab.
+Для автоматичеcкого монтирования при запуске системы следует отредактировать файл /etc/fstab, добавив следующие строки:
+```
+/dev/mapper/hw2--vg-hw2--lv0 /mnt/lv0  ext4 rw,noexec,relatime 0 0
+/dev/mapper/hw2--vg-hw2--lv1 /mnt/lv1 ext4 ro,relatime 0 0
+/dev/mapper/hw2--vg-hw2--lv2 /mnt/lv2 ext4 rw,relatime 0 0
+```
+
 Сразу после перезагрузки:
 ```
 giftwind@markuslab01:~$ cat /proc/mdstat
