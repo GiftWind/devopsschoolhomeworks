@@ -43,37 +43,23 @@ fi
 ##### Демонстрация работы
 
 До добавления нового пользователя:
+![before new user addition](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw3/00-before.jpg)
+
+Добавляем пользователя vasya:
 ```
-giftwind@markuslab01:~/devops/devopsschoolhomeworks/linuxadm/hw3$ tail -5 /etc/passwd
-rachel:x:1005:1005:rachel green:/home/rachel:/bin/bash
-phoebe:x:1006:1006:phoebe buffay:/home/phoebe:/bin/bash
-chandler:x:1007:1007:chandler bing:/home/chandler:/bin/bash
-ftp-admin:x:1008:1008:ftp admin:/home/ftp-admin:/bin/bash
-stranger:x:1009:1009:user with nologin shell:/home/stranger:/sbin/nologin
-giftwind@markuslab01:~/devops/devopsschoolhomeworks/linuxadm/hw3$ ll /home
-total 48
-drwxr-xr-x 12 root      root      4096 Jul 23 10:35 ./
-drwxr-xr-x 20 root      root      4096 Jun  4 21:11 ../
-drwxr-xr-x  2 chandler  chandler  4096 Jul 12 23:10 chandler/
-drwxr-xr-x  4 ftp-admin ftp-admin 4096 Jul 14 18:13 ftp-admin/
-drwxr-xr-x 13 giftwind  giftwind  4096 Jul 23 10:33 giftwind/
-drwxr-xr-x  2 joey      joey      4096 Jul 12 23:10 joey/
-drwxr-xr-x  2 markus    markus    4096 Jun  8 19:33 markus/
-drwxr-xr-x  3 monica    monica    4096 Jul 14 19:35 monica/
-drwxr-xr-x  3 phoebe    phoebe    4096 Jul 14 16:06 phoebe/
-drwxr-xr-x  3 rachel    rachel    4096 Jul 19 20:45 rachel/
-drwxr-xr-x  4 ross      ross      4096 Jul 14 16:06 ross/
-drwxr-xr-x  2 stranger  stranger  4096 Jul 15 20:12 stranger/
-giftwind@markuslab01:~/devops/devopsschoolhomeworks/linuxadm/hw3$ ll /var/ftp/
-total 32
-drwxrwsr-x  8 ftp-admin ftp-admin 4096 Jul 23 10:35 ./
-drwxr-xr-x 14 root      root      4096 Jul 14 16:02 ../
-drwxrwsr-x  2 chandler  ftp-admin 4096 Jul 14 16:08 chandler/
-drwxrwsr-x  2 joey      ftp-admin 4096 Jul 14 16:07 joey/
-drwxrwsr-x  4 monica    ftp-admin 4096 Jul 14 18:45 monica/
-drwxrwsr-x  3 phoebe    ftp-admin 4096 Jul 14 18:45 phoebe/
-drwxrwsr-x  2 rachel    ftp-admin 4096 Jul 14 17:37 rachel/
-drwxrwsr-x  2 ross      ftp-admin 4096 Jul 14 16:30 ross/
+giftwind@markuslab01:~/devops/devopsschoolhomeworks/linuxadm/hw3$ ./addftpuser.sh vasya
+You must be root to execute this script
+giftwind@markuslab01:~/devops/devopsschoolhomeworks/linuxadm/hw3$ sudo !!
+sudo ./addftpuser.sh vasya
+User vasya was created with password dpe3s/cp
 ```
+После добавления пользователя vasya:
+![after new user addition](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw3/01-after.jpg)
+
+Попробуем залогиниться как vasya:
+![vasya login](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw3/02-vasyalogin.jpg)
+
+Система сразу же требует сменить пароль.
+Добавить еще одного пользователя с именем vasya нельзя.
 
 
