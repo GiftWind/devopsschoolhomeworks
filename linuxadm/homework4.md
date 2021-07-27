@@ -96,27 +96,19 @@ exit 0
 
 Пробовал создавать симлинк в rc3.d - telinit уровнем выше и назад к запуску не приводит. При перезапуске подхватывается systemd и дальше работает как юнит systemd.
 
+![init script demo](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw4/initscriptdemo.jpg)
+
 ```
-giftwind@markuslab01:/etc/init.d$ sudo ./filesharer start
-Starting filesharer service on port 8080 sharing content of /opt/share
-giftwind@markuslab01:/etc/init.d$ sudo ./filesharer status
-Filesharer service is running with PID 1298
-Sharing content of /opt/share on port 8080
-giftwind@markuslab01:/etc/init.d$ sudo ./filesharer restart
-Stopping filesharer
-Filesharer stopped
-Starting filesharer service on port 8080 sharing content of /opt/share
-giftwind@markuslab01:/etc/init.d$ sudo ./filesharer status
-Filesharer service is running with PID 1319
-Sharing content of /opt/share on port 8080
-giftwind@markuslab01:/etc/init.d$ sudo ./filesharer start
-Service is already working
-giftwind@markuslab01:/etc/init.d$ sudo ./filesharer stop
-Stopping filesharer
-Filesharer stopped
-giftwind@markuslab01:/etc/init.d$ sudo ./filesharer stop
-Filesharer is not running
+giftwind@markuslab01:~$ ll /opt/share
+total 8
+drwxr-xr-x 2 root root 4096 Jul 27 16:24 ./
+drwxr-xr-x 3 root root 4096 Jul 26 13:47 ../
+-rw-r--r-- 1 root root    0 Jul 27 16:24 file1
+-rw-r--r-- 1 root root    0 Jul 27 16:24 file2
+-rw-r--r-- 1 root root    0 Jul 27 16:24 file3
 ```
+Браузер хостовой машины:
+![file sharing demo](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw4/sharingdemo.jpg)
 
 #### Systemd unit
 
@@ -141,6 +133,17 @@ WantedBy=multi-user.target
 2. ExecStop=/bin/kill -15 $MAINPID - предпочтительный способ остановки.
 3. WantedBy=multi-user.target примерно соответствует run level 3.
 
+Демонстрация работы:
+![systemd unit demo](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw4/sysdunitdemo.jpg)
 
+```
+giftwind@markuslab01:~$ ll /opt/share
+total 8
+drwxr-xr-x 2 root root 4096 Jul 27 18:18 ./
+drwxr-xr-x 3 root root 4096 Jul 26 13:47 ../
+-rw-r--r-- 1 root root    0 Jul 27 18:18 file4
+-rw-r--r-- 1 root root    0 Jul 27 18:18 file5
+-rw-r--r-- 1 root root    0 Jul 27 18:18 file6
+```
 
 
