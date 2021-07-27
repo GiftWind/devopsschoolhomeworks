@@ -145,5 +145,5 @@ drwxr-xr-x 3 root root 4096 Jul 26 13:47 ../
 -rw-r--r-- 1 root root    0 Jul 27 18:18 file5
 -rw-r--r-- 1 root root    0 Jul 27 18:18 file6
 ```
-
+![systemd unit sharing demo](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw4/sharingdemo-systemd.jpg)
 
