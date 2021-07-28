@@ -94,7 +94,7 @@ exit 0
 
 Вызывать скрипт приходится через полное имя, потому что service работает с systemd не так, как с systemv.
 
-Пробовал создавать симлинк в rc3.d - telinit уровнем выше и назад к запуску не приводит. При перезапуске подхватывается systemd и дальше работает как юнит systemd.
+Пробовал создавать симлинк в rc3.d - telinit уровнем выше и назад к запуску не приводит. После ребута подхватывается systemd и дальше работает как юнит systemd.
 
 ![init script demo](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw4/initscriptdemo.jpg)
 
@@ -129,9 +129,10 @@ Restart=Always
 [Install]
 WantedBy=multi-user.target
 ```
-1. After=network.target - требует запуск основной сетевой службы.
-2. ExecStop=/bin/kill -15 $MAINPID - предпочтительный способ остановки.
-3. WantedBy=multi-user.target примерно соответствует run level 3.
+1. Type=simple - процесс не будет форкаться.
+2. After=network.target - требует запуск основной сетевой службы.
+3. ExecStop=/bin/kill -15 $MAINPID - предпочтительный способ остановки.
+4. WantedBy=multi-user.target примерно соответствует run level 3.
 
 Демонстрация работы:
 ![systemd unit demo](https://github.com/GiftWind/devopsschoolhomeworks/blob/master/linuxadm/hw4/sysdunitdemo.jpg)
