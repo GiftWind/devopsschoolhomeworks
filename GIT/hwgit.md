@@ -322,12 +322,11 @@ To https://github.com/GiftWind/samehash.git
    d527e18..dd713e7  main -> main
 giftwind@markuslab01:~/devops/git2/samehash$ git pull
 Already up to date.
-giftwind@markuslab01:~/devops/git2/samehash$ cd ../../git2/samehash/
-giftwind@markuslab01:~/devops/git2/samehash$ git push
+giftwind@markuslab01:~/devops/git2/samehash$ cd ../../git1/samehash/
+giftwind@markuslab01:~/devops/git1/samehash$ git push
 Username for 'https://github.com': giftwind
 Password for 'https://giftwind@github.com':
 Everything up-to-date
-giftwind@markuslab01:~/devops/git2/samehash$
 ```
 
 Этот вариант решения появился после двух дней попыток вручную исправить содержимое объекта коммита, переименовать его в соответствии с новым значением хэша, а затем внести исправления в .git/refs и HEAD. Не получилось, но теперь я понимаю git немного лучше.
