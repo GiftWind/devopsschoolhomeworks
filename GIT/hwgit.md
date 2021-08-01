@@ -29,25 +29,14 @@ remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
 Receiving objects: 100% (6/6), done.
 ```
 
+Хэш коммита вычисляется на основании содержимого объекта коммита.
+Причина разности хэшей коммитов двух одинаковых изменений - timestamp полей Author и Committer.
+Время возле author меняется опцией --date= при git commit или переменной окружения GIT_AUTHOR_DATE.
+Время возле committer можно задать переменной окружения  GIT_COMMITTER_DATE.
 
-Причина разности хэшей - время возле полей Author и Committer.
-Время возле author меняется опцией --date= при git commit.
-Время возле committer можно задать переменной окружения  GIT_COMMITTER_DATE: 2021-07-28T22:36:00
-```
-$ export GIT_AUTHOR_DATE=2021-07-28T00:00:00
-$ export GIT_COMMITTER_DATE=2021-07-28T00:00:00
-$ git commit -m ...
-```
-Решение с помощью переменной окружения:
 ```
 giftwind@markuslab01:~/devops$ cd git1/samehash/
-giftwind@markuslab01:~/devops/git1/samehash$ vim
-content    .git/      README.md
-giftwind@markuslab01:~/devops/git1/samehash$ vim
-content    .git/      README.md
 giftwind@markuslab01:~/devops/git1/samehash$ vim content
-giftwind@markuslab01:~/devops/git1/samehash$ export GIT_AUTHOR_DATE=2021-07-28T00:00:00
-giftwind@markuslab01:~/devops/git1/samehash$ export GIT_COMMITTER_DATE=2021-07-28T00:00:00
 giftwind@markuslab01:~/devops/git1/samehash$ git add .
 giftwind@markuslab01:~/devops/git1/samehash$ export GIT_AUTHOR_DATE=2021-07-28T00:00:00
 giftwind@markuslab01:~/devops/git1/samehash$ export GIT_COMMITTER_DATE=2021-07-28T00:00:00
@@ -64,8 +53,6 @@ drwxrwxr-x 8 giftwind giftwind 4096 Jul 28 20:38 .git/
 -rw-rw-r-- 1 giftwind giftwind   58 Jul 28 20:38 README.md
 giftwind@markuslab01:~/devops/git2/samehash$ vim content
 giftwind@markuslab01:~/devops/git2/samehash$ git add .
-giftwind@markuslab01:~/devops/git2/samehash$ export GIT_AUTHOR_DATE=2021-07-28T00:00:00
-giftwind@markuslab01:~/devops/git2/samehash$ export GIT_COMMITTER_DATE=2021-07-28T00:00:00
 giftwind@markuslab01:~/devops/git2/samehash$ git commit -m "delete the last symbol"
 [main d527e18] delete the last symbol
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -293,7 +280,7 @@ committer Mark Okulov <mvokulov@gmail.com> 1627768244 +0000
 delete the last symbol again
 ```
 
-Тут я узнал, что --amend оставляет неизменным author timestamp исправляемого коммита, игнорируя переменную окружения. Ничего страшного, у нас есть --date=
+Тут я узнал, что по умолчанию --amend оставляет неизменным author timestamp исправляемого коммита, игнорируя переменную окружения. Ничего страшного, у нас есть --date=
 ```
 giftwind@markuslab01:~/devops/git2/samehash$ git commit --amend --date=="1627768244 +0000"
 [main dd713e7] delete the last symbol again
